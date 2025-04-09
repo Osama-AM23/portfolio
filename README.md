@@ -1,2 +1,0 @@
-# portfolio
-Designed My Portfolio
