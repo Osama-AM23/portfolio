@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer Portfolio</title>
+    <link rel="icon" href="profile-pic (2).png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'myFonts';
+            src: url(BluuNext-Bold.otf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: -apple-system, sans-serif;
+        }
+
+        /* Color Variables */
+        :root {
+            --bg-color: #D6CFE1;
+            --snd-bg-color: #ac8edc;
+            --text-color: #000;
+            --main-color: #2E2E2E;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            padding-top: 80px;
+            scroll-behavior: smooth;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            color: var(--bg-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--snd-bg-color);
+            transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .logo:hover {
+            color: var(--text-color);
+            transform: scale(1.1);
+        }
+
+        /* Navigation Menu */
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            color: var(--snd-bg-color);
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--bg-color);
+        }
+
+        /* Container Alignment */
+        .container {
+            margin-top: 80px;
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .title {
+            font-family: 'myFonts';
+            font-size: 120px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .image-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            display: flex;
+            background: var(--main-color);
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 30px;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills-section .image-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .skills-section .image-container img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .content {
+            flex: 2;
+            text-align: left;
+            color: white;
+            padding-left: 40px;
+        }
+
+        .content h2 {
+            font-size: 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .content h2 span {
+            color: var(--snd-bg-color);
+        }
+
+        .skills-list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .skill {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .skill h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--snd-bg-color);
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Application Section */
+        .application-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .app-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--main-color);
+            margin-bottom: 30px;
+        }
+
+        .application-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .app-item img {
+            width: 100px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .app-item img:hover {
+            transform: scale(1.2);
+        }
+
+        /* work section  */
+        .works-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--main-color);
+            margin-bottom: 30px;
+        }
+
+        .section-title h3 {
+            font-size: 30px;
+            font-weight: bold;
+            color: var(--snd-bg-color);
+            margin-bottom: 50px;
+        }
+
+        .slider {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            cursor: pointer;
+            text-align: center;
+            flex: 1 1 calc(25% - 20px);
+            /* First four images in one row */
+            max-width: calc(25% - 20px);
+        }
+
+        .slide:nth-child(5) {
+            flex: 1 1 100%;
+            /* Fifth image moves to a new row */
+            max-width: 250px;
+        }
+
+        .slide img {
+            width: 250px;
+            border-radius: 10px;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .image-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--main-color);
+            margin-top: 10px;
+        }
+
+        .slide:hover img {
+            transform: scale(1.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider .slide:not(:hover) img {
+            opacity: 0.5;
+            transform: scale(0.9);
+        }
+
+        .caricature-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 50px 0 30px;
+        }
+
+        .bx:hover {
+            transform: scale(1.2);
+            filter: brightness(1.3);
+        }
+
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .slide {
+                flex: 1 1 calc(33.33% - 20px);
+                /* 3 per row */
+            }
+
+            .slide:nth-child(4),
+            .slide:nth-child(5) {
+                flex: 1 1 50%;
+                /* 4th and 5th go to the next row */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                flex: 1 1 calc(50% - 20px);
+                /* 2 per row */
+            }
+
+            .slide:nth-child(3),
+            .slide:nth-child(4),
+            .slide:nth-child(5) {
+                flex: 1 1 100%;
+                /* Next images in new rows */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                flex: 1 1 100%;
+                /* 1 per row */
+            }
+        }
+
+        /* Tablet (768px - 1024px) */
+        @media (max-width: 1024px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .skills-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .skills-section .image-container {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .skills-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill {
+                width: 100%;
+            }
+
+            .title {
+                font-size: 80px;
+            }
+        }
+
+        /* Mobile (max-width: 768px) */
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 60px;
+            }
+
+            .title {
+                font-size: 60px;
+            }
+
+            .skills-section {
+                width: 90%;
+            }
+
+            .content h2 {
+                font-size: 28px;
+            }
+
+            .app-title {
+                font-size: 24px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .section-title h3 {
+                font-size: 22px;
+            }
+
+            .slide img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .application-container {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 15px;
+            }
+
+            .app-item img {
+                width: 80px;
+            }
+
+            .image-title {
+                font-size: 14px;
+            }
+        }
+
+        /* Extra Small Screens (max-width: 480px) */
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+
+            .title {
+                font-size: 40px;
+            }
+
+            .content h2 {
+                font-size: 24px;
+            }
+
+            .skills-list {
+                margin-top: 10px;
+            }
+
+            .slider {
+                gap: 10px;
+            }
+
+            .slide {
+                max-width: 100%;
+            }
+
+            .app-title {
+                font-size: 20px;
+            }
+
+            .app-item img {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">Osama A</a>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="container">
+            <h2 class="title">PORTFOLIO <br> PORTFOLIO <br> PORTFOLIO </h2>
+            <div class="image-container">
+                <img src="Picsart_25-03-19_15-40-51-671.png" alt="Designer Work">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="image-container">
+            <img src="Picsart_black.png" alt="Personal Skills">
+        </div>
+
+        <div class="content">
+            <h2><span>Personal</span> Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <h3>Videography</h3>
+                    <p>Passionate about storytelling through visual media, I have hands-on experience in
+                        videography—from planning and shooting to editing and post-production. Skilled in capturing
+                        cinematic visuals, framing, lighting, and motion techniques to enhance narrative impact.</p>
+                </div>
+                <div class="skill">
+                    <h3>Photography</h3>
+                    <p>Enthusiastic and detail-oriented photographer with a strong eye for composition, lighting, and
+                        storytelling. Skilled in capturing portraits, events, landscapes, and candid moments with
+                        creativity and technical precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="application-section" id="application">
+        <h2 class="app-title">Applications I Use</h2>
+        <div class="application-container">
+            <div class="app-item"><img src="canvapng.webp" alt="Canva"></div>
+            <div class="app-item"><img src="picsartpng.png" alt="PicsArt"></div>
+            <div class="app-item"><img src="capcutpng.png" alt="CapCut"></div>
+            <div class="app-item"><img src="vnpng.webp" alt="VN Editor"></div>
+            <div class="app-item"><img src="ligthroompng.png" alt="Lightroom"></div>
+            <div class="app-item"><img src="snapseed.webp" alt="Snapseed"></div>
+            <div class="app-item"><img src="ldpng.png" alt="LD"></div>
+            <div class="app-item"><img src="hypic.png" alt="Hypic"></div>
+            <div class="app-item"><img src="flimora.webp" alt="Flimora"></div>
+            <div class="app-item"><img src="kinemaster.jpeg" alt="KineMaster"></div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section class="works-section" id="works">
+        <h2 class="section-title">My Works</h2>
+        <h3 class="section-title">Social Media & Product Posters</h3>
+        <div class="slider">
+            <div class="slide">
+                <a href="https://www.canva.com/design/DAGiFu1QDQQ/9jrAX7RS96mnP-SyJtXgew/edit" target="_blank">
+                    <img src="IceCream Poster.png" alt="Ice Cream Poster">
+                </a>
+                <p class="image-title">Ice Cream Poster</p>
+            </div>
+
+            <div class="slide">
+                <a href="https://www.canva.com/design/DAGiSCAzx90/-pIO5mhJoQoFmDhw9SmR6w/edit" target="_blank">
+                    <img src="Almond poster.png" alt="Almond poster">
+                </a>
+                <p class="image-title"> Everyday Almond Poster</p>
+            </div>
+
+
+            <div class="slide">
+                <a href="https://www.canva.com/design/DAGiD-3hwR4/pOONkdkSpAJWuX1sJWsdxg/edit" target="_blank">
+                    <img src="PIZZA.png" alt="Pizza Advertisement">
+                </a>
+                <p class="image-title">Pizza Ad Poster</p>
+            </div>
+
+
+            <div class="slide">
+                <a href="https://www.canva.com/design/DAGiQ-n3diw/HqwwboMa8Na6zUbvLeu3mg/edit" target="_blank">
+                    <img src="Momo poster.png" alt="momo Poster">
+                </a>
+                <p class="image-title">Momos Poster</p>
+            </div>
+
+            <div class="slide">
+                <a href="https://www.canva.com/design/DAGiE45Bx-c/N5yNLALorz2vLeU8Sr1yPA/edit?utm_content=DAGiE45Bx-c&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                    target="_blank">
+                    <img src="NOISE.png" alt="Noise Art">
+                </a>
+                <p class="image-title">Noise Buds Poster</p>
+            </div>
+
+            <div class="slide">
+                <a>
+                    <img src="camera poster.png" alt="camera Art">
+                </a>
+                <p class="image-title">Sony Camera Poster</p>
+            </div>
+
+            <div class="slide">
+                <a href="https://www.canva.com/design/DAGiLyPmd5Q/LJFXeS7CXNpzpqDisEZLOw/edit?utm_content=DAGiLyPmd5Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                    target="_blank">
+                    <img src="Smart Watch.png" alt="smart watch Poster">
+                </a>
+                <p class="image-title">smart watch Poster</p>
+            </div>
+
+            <div class="slide">
+                <a>
+                    <img src="Helmet Poster.png" alt="Helmet Poster">
+                </a>
+                <p class="image-title">Vega Helmet Poster</p>
+            </div>
+        </div>
+        <h3 class="section-title caricature-title">CARICATURE FRAME WORK</h3>
+
+
+        <div class="slider">
+            <div class="slide">
+                <a>
+                    <img src="CH17ROM.jpg.jpg" alt="caricature Frame">
+                </a>
+                <p class="image-title">Caricature Poster</p>
+            </div>
+            <div class="slide">
+                <a>
+                    <img src="1719060935959.jpg" alt="caricature Frame">
+                </a>
+                <p class="image-title">Caricature Poster</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact-section"
+        style="padding: 60px 20px; background: linear-gradient(135deg, #d6cfe1, #f0e6f7); font-family: -apple-system, sans-serif; color: #333;">
+        <div
+            style="max-width: 900px; margin: auto; background: #fff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden;">
+
+            <!-- Decorative Top Shape -->
+            <div style="background: #ac8edc; padding: 30px; text-align: center;">
+                <h2 style="margin: 0; font-size: 32px; color: white;">Get in Touch</h2>
+            </div>
+
+            <!-- Contact Form and Info -->
+            <div style="flex: 1 1 300px; padding: 20px; text-align: center;">
+                <h3 style="margin-bottom: 10px; font-size: 24px;">Contact Info</h3>
+                <p style="margin: 10px 0;">Bangalore, India</p>
+                <p style="margin: 10px 0;">osamavr691@gmail.com</p>
+                <p style="margin: 10px 0;">+91 99526 44296</p>
+
+                <div style="margin-top: 20px; display: flex; gap: 20px; align-items: center; justify-content: center;">
+                    <a href="https://www.linkedin.com/in/osama-azees" target="_blank"
+                        style="font-size: 32px; color: #0e76a8; transition: transform 0.3s, color 0.3s;">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://wa.me/9952644296" target="_blank"
+                        style="font-size: 32px; color: #25D366; transition: transform 0.3s, color 0.3s;">
+                        <i class='bx bxl-whatsapp'></i>
+                    </a>
+                    <a href="https://www.instagram.com/mad_boi_1_" target="_blank"
+                        style="font-size: 32px; color: #C13584; transition: transform 0.3s, color 0.3s;">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="background-color: var(--snd-bg-color); padding: 20px 30px; color: var(--text-color); position: relative;">
+        <div style="max-width: 1000px; margin: auto; text-align: center;">
+            <h3 style="font-size: 24px; color: var(--main-color); margin-bottom: 10px;">Let's Connect</h3>
+            <p style="margin-bottom: 20px; font-size: 16px;">Thanks for visiting! Feel free to connect with me on social platforms.</p>
+    
+            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+                <a href="https://www.linkedin.com/in/osama-azees" target="_blank" style="font-size: 28px; color: #0e76a8;">
+                    <i class='bx bxl-linkedin'></i>
+                </a>
+                <a href="https://wa.me/9952644296" target="_blank" style="font-size: 28px; color: #25D366;">
+                    <i class='bx bxl-whatsapp'></i>
+                </a>
+                <a href="https://www.instagram.com/mad_boi_1_" target="_blank" style="font-size: 28px; color: #C13584;">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+            </div>
+    
+            <p style="font-size: 14px; color: var(--main-color);">© 2025 Osama. All rights reserved.</p>
+        </div>
+    
+        <!-- Button on Right -->
+        <div style="position: absolute; right: 30px; top: 30px;">
+            <a href="index.html" 
+               style="background-color: var(--bg-color); color: #000; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s;">
+                Back to Home
+            </a>
+        </div>
+    </footer>
+    
+    
+
+
+
+    <script>
+        // Smooth scroll to anchor links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+            alert("Right-click is disabled on this page.");
+        });
+    </script>
+</body>
+
+</html>
